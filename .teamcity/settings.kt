@@ -1,16 +1,16 @@
 import jetbrains.buildServer.configs.kotlin.*
-import jetbrains.buildServer.configs.kotlin.buildSteps.python
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
-object Build : BuildType({
-    name = "Build"
-    // ...
+version = "2025.03"
+
+project {
+  buildType {
+    id("HelloWorld")
+    name = "Hello world"
     steps {
-        python {
-            id = "python_runner"
-            command = script {
-                content = """print ("Running a Python script...")"""
-            }
+        script {
+            scriptContent = "echo 'Hello world!'"
         }
     }
-    // ...
-})
+  }
+}
