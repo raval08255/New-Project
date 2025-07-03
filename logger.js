@@ -2,3 +2,5 @@
 const export logger = (message) => {
   console.log(message);
 };
+
+logger('Hello World');
