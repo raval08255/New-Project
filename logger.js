@@ -1,4 +1,4 @@
 // exports a logger function which prints hello
-const export logger = () => {
-  console.log('Hello');
+const export logger = (message) => {
+  console.log(message);
 };
