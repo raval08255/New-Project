@@ -59,7 +59,7 @@ object Build : BuildType({
         script {
             name = "Say hello"
             id = "Say_hello"
-            scriptContent = """echo "hello world""""
+            scriptContent = """npm install"""
         }
     }
 
@@ -84,7 +84,7 @@ object id : BuildType({
     steps {
         exec {
             name = "myCommandLineStep"
-            param("script.content", "echo 'Hello World!'")
+            param("script.content", "npm install")
         }
     }
 
