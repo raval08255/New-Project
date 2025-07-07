@@ -60,9 +60,9 @@ object CustomBuild : BuildType({
     }
 
     steps {
-        exec {
+        script {
             name = "myCommandLineStep"
-            param("script.content", "npm install")
+            scriptContent = "npm install"
         }
     }
 
