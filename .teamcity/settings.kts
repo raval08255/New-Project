@@ -8,7 +8,6 @@ version = "2025.03"
 
 project {
     buildType(Build)
-    buildType(CustomBuild)
 
     features {
         githubAppConnection {
