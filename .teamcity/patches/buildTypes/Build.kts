@@ -30,12 +30,6 @@ changeBuildType(RelativeId("Build")) {
         }
         insert(1) {
             nodeJS {
-                id = "nodejs_runner"
-                shellScript = "npm install"
-            }
-        }
-        insert(2) {
-            nodeJS {
                 id = "nodejs_runner_1"
                 shellScript = """
                     npm install eslint-teamcity --no-save
