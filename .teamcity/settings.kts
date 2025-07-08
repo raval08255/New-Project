@@ -1,5 +1,4 @@
 import jetbrains.buildServer.configs.kotlin.*
-import jetbrains.buildServers.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.exec
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.projectFeatures.githubAppConnection
@@ -52,11 +51,6 @@ object Build : BuildType({
 
     triggers {
         vcs {
-        }
-    }
-
-    features {
-        perfmon {
         }
     }
 })
