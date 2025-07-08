@@ -1,7 +1,6 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.*
-import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.ui.*
 
@@ -19,13 +18,6 @@ changeBuildType(RelativeId("Build")) {
         }
     }
     steps {
-        update<ScriptBuildStep>(0) {
-            clearConditions()
-            scriptContent = """
-                export PATH=${'$'}PATH:/root/.nvm/versions/node/v22.17.0/bin
-                npm install
-            """.trimIndent()
-            param("teamcity.kubernetes.executor.pull.policy", "")
-        }
+        items.removeAt(0)
     }
 }
