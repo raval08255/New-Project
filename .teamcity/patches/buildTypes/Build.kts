@@ -2,6 +2,7 @@ package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
+import jetbrains.buildServer.configs.kotlin.buildSteps.nodeJS
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.ui.*
 
@@ -26,6 +27,21 @@ changeBuildType(RelativeId("Build")) {
                 npm install
             """.trimIndent()
             param("teamcity.kubernetes.executor.pull.policy", "")
+        }
+        insert(1) {
+            nodeJS {
+                id = "nodejs_runner"
+                shellScript = "npm install"
+            }
+        }
+        insert(2) {
+            nodeJS {
+                id = "nodejs_runner_1"
+                shellScript = """
+                    npm install eslint-teamcity --no-save
+                    npm run lint -- --format ./node_modules/eslint-teamcity/index.js
+                """.trimIndent()
+            }
         }
     }
 }
