@@ -25,7 +25,7 @@ project {
 }
 
 object Build : BuildType({
-    name = "Build"
+    name = "Project Build"
 
     vcs {
         root(DslContext.settingsRoot)
@@ -51,28 +51,6 @@ object Build : BuildType({
 
     triggers {
         vcs {
-        }
-    }
-})
-
-object CustomBuild : BuildType({
-    name = "name"
-
-    params {
-        param("myBuildParameter", "myValue")
-    }
-
-    steps {
-        script {
-            name = "myCommandLineStep"
-            scriptContent = "npm install"
-        }
-    }
-
-    triggers {
-        vcs {
-            branchFilter = ""
-            enableQueueOptimization = false
         }
     }
 })
