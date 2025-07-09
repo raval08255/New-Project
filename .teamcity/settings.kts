@@ -35,21 +35,24 @@ object Build : BuildType({
             name = "Install Dependencies"
             id = "Install_Dependencies"
             scriptContent = """
-                /root/.nvm/versions/node/v22.17.0/bin/npm install
+                export PATH=/root/.nvm/versions/node/v22.17.0/bin
+                npm install
             """.trimIndent()
         }
         script {
             name = "Build Project"
             id = "Build_Project"
             scriptContent = """
-                /root/.nvm/versions/node/v22.17.0/bin/npm run build
+                export PATH=/root/.nvm/versions/node/v22.17.0/bin
+                npm run build
             """.trimIndent()
         }
         script {
             name = "Lint Code"
             id = "Lint_Code"
             scriptContent = """
-                /root/.nvm/versions/node/v22.17.0/bin/npm run lint
+                export PATH=/root/.nvm/versions/node/v22.17.0/bin
+                npm run lint
             """.trimIndent()
         }
     }
