@@ -31,30 +31,6 @@ object Build : BuildType({
     }
 
     steps {
-        script {
-            name = "Install Dependencies"
-            id = "Install_Dependencies"
-            scriptContent = """
-                PATH=/root/.nvm/versions/node/v22.17.0/bin:/usr/bin:/bin
-                npm install
-            """.trimIndent()
-        }
-        script {
-            name = "Build Project"
-            id = "Build_Project"
-            scriptContent = """
-                PATH=/root/.nvm/versions/node/v22.17.0/bin:/usr/bin:/bin
-                npm run build
-            """.trimIndent()
-        }
-        script {
-            name = "Lint Code"
-            id = "Lint_Code"
-            scriptContent = """
-                PATH=/root/.nvm/versions/node/v22.17.0/bin:/usr/bin:/bin
-                npm run lint
-            """.trimIndent()
-        }
     }
 
     triggers {
