@@ -35,7 +35,7 @@ object Build : BuildType({
             name = "Install Dependencies"
             id = "Install_Dependencies"
             scriptContent = """
-                export PATH=/root/.nvm/versions/node/v22.17.0/bin:\$PATH
+                PATH=/root/.nvm/versions/node/v22.17.0/bin:/usr/bin:/bin
                 npm install
             """.trimIndent()
         }
@@ -43,7 +43,7 @@ object Build : BuildType({
             name = "Build Project"
             id = "Build_Project"
             scriptContent = """
-                export PATH=/root/.nvm/versions/node/v22.17.0/bin:\$PATH
+                PATH=/root/.nvm/versions/node/v22.17.0/bin:/usr/bin:/bin
                 npm run build
             """.trimIndent()
         }
@@ -51,7 +51,7 @@ object Build : BuildType({
             name = "Lint Code"
             id = "Lint_Code"
             scriptContent = """
-                export PATH=/root/.nvm/versions/node/v22.17.0/bin:\$PATH
+                PATH=/root/.nvm/versions/node/v22.17.0/bin:/usr/bin:/bin
                 npm run lint
             """.trimIndent()
         }
