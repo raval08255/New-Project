@@ -61,3 +61,4 @@ object Build : BuildType({
         vcs {
         }
     }
+})
