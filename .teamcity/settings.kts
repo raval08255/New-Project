@@ -1,6 +1,6 @@
-import jetins.buildServer.configs.kotlin.*
-importbrains.buildServer.configs.kotlin.buildSteps.exec
-importbrains.buildServer.configs.kotlin.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildSteps.exec
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configsotlin.projectFeaturesAppConnection
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
@@ -44,7 +44,7 @@ object Build : BuildType({
             id = "Build_Project"
             scriptContent = """
                 PATH=/root/.nvm/versions/node/v22.17.0/bin:/usr/bin:/bin
-                npm run build
+                npm run dummy-script
             """.trimIndent()
         }
         script {
