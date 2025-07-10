@@ -1,7 +1,7 @@
-import jetbrains.buildServer.configs.kotlin.*
-import jetbrains.buildServer.configs.kotlin.buildSteps.exec
-import jetbrains.buildServer.configs.kotlin.buildSteps.script
-import jetbrains.buildServer.configs.kotlin.projectFeatures.githubAppConnection
+import jetins.buildServer.configs.kotlin.*
+importbrains.buildServer.configs.kotlin.buildSteps.exec
+importbrains.buildServer.configs.kotlin.buildSteps.script
+import jetbrains.buildServer.configsotlin.projectFeaturesAppConnection
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 version = "2025.03"
@@ -31,6 +31,30 @@ object Build : BuildType({
     }
 
     steps {
+        script {
+            name = "Install Dependencies"
+            id = "Install_Dependencies"
+            scriptContent = """
+                PATH=/root/.nvm/versions/node/v22.17.0/bin:/usr/bin:/bin
+                npm install
+            """.trimIndent()
+        }
+        script {
+            name = "Build Project"
+            id = "Build_Project"
+            scriptContent = """
+                PATH=/root/.nvm/versions/node/v22.17.0/bin:/usr/bin:/bin
+                npm run build
+            """.trimIndent()
+        }
+        script {
+            name = "Lint Code"
+            id = "Lint_Code"
+            scriptContent = """
+                PATH=/root/.nvm/versions/node/v22.17.0/bin:/usr/bin:/bin
+                npm run lint
+            """.trimIndent()
+        }
     }
 
     triggers {
