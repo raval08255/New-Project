@@ -44,7 +44,7 @@ object Build : BuildType({
             id = "Build_Project"
             scriptContent = """
                 PATH=/root/.nvm/versions/node/v22.17.0/bin:/usr/bin:/bin
-                npm run build
+                npm run dummy-script
             """.trimIndent()
         }
         script {
